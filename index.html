@@ -7,267 +7,602 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    /* ── Dell 1996 palette ── */
     :root {
-      --navy: #1e3a5f;
-      --red:  #e63946;
-      --light: #f4f6f9;
-      --text: #222;
-      --muted: #666;
-      --border: #dde2ea;
+      --red:        #e91d2a;
+      --yellow:     #fcc20f;
+      --black:      #000000;
+      --white:      #ffffff;
+      --link:       #0000ee;
+      --olive:      #8e8a25;
+      --sage:       #b3bd95;
+      --salmon:     #d77a7a;
+      --peach:      #e6915d;
+      --lime:       #c0d4a7;
+      --sky:        #9ab6c8;
+      --steel:      #a5b8c0;
+      --periwinkle: #8c9ae0;
     }
+
+    html { scroll-behavior: smooth; }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: var(--light);
-      color: var(--text);
-      line-height: 1.65;
+      background: #555;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 14px;
+      line-height: 1.4;
+      color: var(--black);
+      min-height: 100vh;
     }
 
-    /* ── Header ── */
-    header {
-      background: var(--navy);
-      color: #fff;
-      padding: 3rem 1.5rem 2.5rem;
-      text-align: center;
+    /* ── PAGE FRAME ── */
+    .page-frame {
+      max-width: 776px;
+      margin: 16px auto;
+      border: 8px solid var(--black);
+      background: var(--white);
     }
 
-    .profile-img {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid #fff;
-      display: block;
-      margin: 0 auto 1.2rem;
-    }
-
-    header h1 {
-      font-size: 2.2rem;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-    }
-
-    header .subtitle {
-      margin-top: 0.35rem;
-      font-size: 0.8rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--red);
-      font-weight: 700;
-    }
-
-    /* ── Main ── */
-    main {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 2.5rem 1.5rem 3rem;
-    }
-
-    section {
-      margin-bottom: 2.5rem;
-    }
-
-    section h2 {
-      font-size: 0.72rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--red);
-      font-weight: 700;
-      padding-bottom: 0.45rem;
-      border-bottom: 2px solid var(--border);
-      margin-bottom: 1rem;
-    }
-
-    /* About */
-    .about-text {
-      font-size: 1.05rem;
-      color: var(--text);
-    }
-
-    /* Contact */
-    .contact-list {
-      list-style: none;
+    /* ── TOP BANNER ── */
+    .top-banner {
+      background: var(--black);
+      color: var(--white);
+      padding: 12px 16px;
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem 2rem;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
     }
 
-    .contact-list li {
-      display: flex;
-      align-items: baseline;
-      gap: 0.4rem;
-    }
-
-    .contact-label {
-      font-size: 0.72rem;
-      letter-spacing: 0.12em;
+    .banner-title {
+      font-family: 'Arial Black', Helvetica, sans-serif;
+      font-size: 24px;
+      font-weight: 900;
+      line-height: 1.05;
+      color: var(--white);
       text-transform: uppercase;
-      color: var(--muted);
-      font-weight: 700;
     }
 
-    .contact-list a {
-      color: var(--navy);
+    .banner-sub {
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--white);
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .banner-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4px;
+      flex-shrink: 0;
+    }
+
+    .buy-sticker {
+      display: inline-block;
+      background: var(--yellow);
+      color: var(--black);
+      border: 1px solid var(--black);
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.0;
+      padding: 4px 8px;
       text-decoration: none;
     }
 
-    .contact-list a:hover,
-    .contact-list a:focus {
+    .phone-callout {
+      background: var(--black);
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 4px 8px;
+    }
+
+    .phone-callout a {
+      color: var(--red);
+      text-decoration: none;
+    }
+
+    /* ── SITE NAV ── */
+    .site-nav {
+      background: var(--black);
+      border-top: 1px solid #333;
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0 8px;
+    }
+
+    .site-nav a {
+      display: block;
+      color: var(--white);
+      text-decoration: none;
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 8px 10px;
+      line-height: 1.0;
+      border-right: 1px solid #444;
+      min-height: 36px;
+      display: flex;
+      align-items: center;
+    }
+
+    .site-nav a:first-child { border-left: 1px solid #444; }
+
+    .site-nav a:hover,
+    .site-nav a:focus { background: #222; outline: none; }
+
+    /* ── SECTION EYEBROW ── */
+    .eyebrow {
+      padding: 24px 16px;
+      font-family: 'Arial Black', Helvetica, sans-serif;
+      font-size: 36px;
+      font-weight: 900;
+      line-height: 1.0;
+      text-transform: uppercase;
+      color: var(--black);
+      border-top: 1px solid var(--black);
+    }
+
+    .ey-olive      { background: var(--olive); }
+    .ey-salmon     { background: var(--salmon); }
+    .ey-periwinkle { background: var(--periwinkle); }
+    .ey-steel      { background: var(--steel); }
+
+    /* ── RIBBON CARD ── */
+    .ribbon-card { border-top: 1px solid var(--black); }
+
+    .ribbon-title {
+      background: var(--white);
+      border-bottom: 1px solid var(--black);
+      padding: 6px 12px;
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.2;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .ribbon-body {
+      padding: 12px 16px;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 14px;
+      line-height: 1.4;
+      color: var(--black);
+    }
+
+    /* tints */
+    .rb-sage       { background: var(--sage); }
+    .rb-peach      { background: var(--peach); }
+    .rb-lime       { background: var(--lime); }
+    .rb-sky        { background: var(--sky); }
+    .rb-steel      { background: var(--steel); }
+    .rb-salmon     { background: var(--salmon); }
+    .rb-periwinkle { background: var(--periwinkle); }
+    .rb-olive      { background: var(--olive); }
+
+    /* ── ABOUT: text + photo notch ── */
+    .ribbon-with-photo {
+      display: flex;
+      align-items: stretch;
+    }
+
+    .ribbon-with-photo .rtext {
+      flex: 1;
+      padding: 12px 16px;
+    }
+
+    .photo-notch {
+      flex-shrink: 0;
+      width: 130px;
+      border-left: 1px solid var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px;
+    }
+
+    .photo-notch img {
+      display: block;
+      width: 108px;
+      height: 108px;
+      object-fit: cover;
+      border: 1px solid var(--black);
+    }
+
+    /* ── SKILLS GRID ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .skill-cell {
+      padding: 10px 12px;
+      border-right: 1px solid var(--black);
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .skill-cell:last-child { border-right: none; }
+
+    /* ── NEW! burst sticker ── */
+    .new-burst {
+      display: inline-block;
+      background: var(--yellow);
+      color: var(--black);
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 6px;
+      border: 1px solid var(--black);
+      transform: rotate(-12deg);
+      line-height: 1.0;
+      flex-shrink: 0;
+    }
+
+    /* ── COURSES GRID ── */
+    .courses-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .course-cell {
+      padding: 10px 14px;
+      border-top: 1px solid var(--black);
+      border-right: 1px solid var(--black);
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .course-cell:nth-child(2n) { border-right: none; }
+
+    /* ── CTA BLOCK (red — one per page) ── */
+    .cta-block {
+      background: var(--red);
+      color: var(--white);
+      border-top: 1px solid var(--black);
+      padding: 16px;
+    }
+
+    .cta-block p {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 14px;
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+
+    .cta-contacts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px 24px;
+      margin-bottom: 14px;
+    }
+
+    .cta-label {
+      display: block;
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.75);
+      margin-bottom: 2px;
+    }
+
+    .cta-val {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 14px;
+      color: var(--white);
+    }
+
+    .cta-val a {
+      color: var(--white);
       text-decoration: underline;
     }
 
-    /* Education */
-    .edu-school {
+    .btn-primary {
+      display: inline-block;
+      background: var(--black);
+      color: var(--white);
+      border: 1px solid var(--black);
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 12px;
       font-weight: 700;
-      color: var(--navy);
+      line-height: 1.0;
+      padding: 6px 16px;
+      text-decoration: none;
     }
 
-    .edu-degree {
-      color: var(--muted);
-      font-size: 0.95rem;
-      margin-top: 0.15rem;
+    /* ── FOOTER ── */
+    .footer-band {
+      background: var(--white);
+      border-top: 1px solid var(--black);
+      padding: 16px;
     }
 
-    /* Strengths */
-    .tags {
+    .footer-nav {
       list-style: none;
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
+      border-bottom: 2px solid green;
+      padding-bottom: 8px;
+      margin-bottom: 12px;
     }
 
-    .tag {
-      background: var(--navy);
-      color: #fff;
-      border-radius: 999px;
-      padding: 0.28rem 0.85rem;
-      font-size: 0.85rem;
-    }
-
-    /* Projects */
-    .project-card {
-      border-left: 3px solid var(--red);
-      padding: 0.8rem 1rem;
-      background: #fff;
-      border-radius: 0 4px 4px 0;
-      box-shadow: 0 1px 3px rgba(0,0,0,.06);
-    }
-
-    .project-card h3 {
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 0.3rem;
-    }
-
-    .project-card p {
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    /* CV download */
-    .cv-btn {
-      display: inline-block;
-      background: var(--red);
-      color: #fff;
-      padding: 0.6rem 1.4rem;
-      border-radius: 4px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.9rem;
-      transition: background 0.15s;
-    }
-
-    .cv-btn:hover,
-    .cv-btn:focus {
-      background: #c1121f;
-    }
-
-    /* ── Footer ── */
-    footer {
+    .footer-nav li {
+      flex: 1;
       text-align: center;
-      padding: 1.25rem;
-      font-size: 0.8rem;
-      color: var(--muted);
-      border-top: 1px solid var(--border);
+      padding: 8px;
+      min-height: 44px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
     }
 
-    /* ── Responsive ── */
+    .nav-icon {
+      font-size: 18px;
+      line-height: 1;
+      display: block;
+    }
+
+    .footer-nav li a {
+      color: var(--link);
+      text-decoration: underline;
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 1.0;
+    }
+
+    .footer-links {
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    .footer-links a {
+      color: var(--link);
+      text-decoration: underline;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 12px;
+    }
+
+    .footer-copy {
+      text-align: center;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 11px;
+      line-height: 1.35;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .page-frame { margin: 4px; border-width: 4px; }
+      .eyebrow    { font-size: 24px; padding: 16px; }
+
+      .skills-grid { grid-template-columns: 1fr 1fr; }
+      .skill-cell:nth-child(2n)        { border-right: none; }
+      .skill-cell:nth-child(n+3)       { border-top: 1px solid var(--black); }
+      /* reset last-child override from desktop */
+      .skill-cell:last-child           { border-right: none; }
+      .skill-cell:nth-child(2n-1):last-child { border-right: 1px solid var(--black); }
+    }
+
     @media (max-width: 480px) {
-      header h1       { font-size: 1.7rem; }
-      .profile-img    { width: 110px; height: 110px; }
+      .page-frame     { margin: 2px; border-width: 2px; }
+      .top-banner     { flex-direction: column; align-items: flex-start; }
+      .banner-right   { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 6px; }
+      .eyebrow        { font-size: 20px; padding: 10px 12px; }
+
+      .ribbon-with-photo { flex-direction: column; }
+      .photo-notch    { width: 100%; border-left: none; border-top: 1px solid var(--black); justify-content: flex-start; padding: 8px 16px 10px; }
+
+      .skills-grid    { grid-template-columns: 1fr 1fr; }
+
+      .courses-grid   { grid-template-columns: 1fr; }
+      .course-cell    { border-right: none; }
+
+      .footer-nav     { flex-wrap: wrap; }
+      .footer-nav li  { flex: 0 0 33.33%; }
+
+      .site-nav a     { font-size: 11px; padding: 8px 8px; }
     }
   </style>
 </head>
 <body>
 
+<div class="page-frame">
+
+  <!-- ══ TOP BANNER ══ -->
   <header>
-    <img src="assets/profile.jpg" alt="Jeonghyun Kim" class="profile-img">
-    <h1>Jeonghyun Kim</h1>
-    <p class="subtitle">Computer Science &amp; Engineering Student</p>
+    <div class="top-banner">
+      <div>
+        <div class="banner-title">Jeonghyun Kim</div>
+        <div class="banner-sub">Computer Science &amp; Engineering Student</div>
+      </div>
+      <div class="banner-right">
+        <a href="assets/cv.pdf" class="buy-sticker" download>DOWNLOAD CV</a>
+        <div class="phone-callout">
+          <a href="mailto:rlawjdgus0625@snu.ac.kr">rlawjdgus0625@snu.ac.kr</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation menu -->
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="#about">ABOUT</a>
+      <a href="#resume">RESUME</a>
+      <a href="#projects">PROJECTS</a>
+      <a href="#courses">COURSES</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
   </header>
 
-  <main>
-
-    <section aria-labelledby="about-heading">
-      <h2 id="about-heading">About Me</h2>
-      <p class="about-text">
-        A Computer Science &amp; Engineering student at Seoul National University
-        with a strong work ethic and a rockstar spirit inside. I push myself hard,
-        stay curious, and bring energy to everything I take on. My ambition is
-        simple: to keep growing until I become an icon in my field.
-      </p>
-    </section>
-
-    <section aria-labelledby="contact-heading">
-      <h2 id="contact-heading">Contact</h2>
-      <ul class="contact-list">
-        <li>
-          <span class="contact-label">Email</span>
-          <a href="mailto:rlawjdgus0625@snu.ac.kr">rlawjdgus0625@snu.ac.kr</a>
-        </li>
-        <li>
-          <span class="contact-label">Phone</span>
-          <a href="tel:+821028948264">010-2894-8264</a>
-        </li>
-      </ul>
-    </section>
-
-    <section aria-labelledby="education-heading">
-      <h2 id="education-heading">Education</h2>
-      <p class="edu-school">Seoul National University</p>
-      <p class="edu-degree">B.S. in Computer Science &amp; Engineering</p>
-    </section>
-
-    <section aria-labelledby="strengths-heading">
-      <h2 id="strengths-heading">Strengths</h2>
-      <ul class="tags">
-        <li class="tag">Diligence</li>
-        <li class="tag">Drive</li>
-        <li class="tag">Self-growth</li>
-        <li class="tag">Ambition</li>
-        <li class="tag">Stage presence</li>
-      </ul>
-    </section>
-
-    <section aria-labelledby="projects-heading">
-      <h2 id="projects-heading">Projects</h2>
-      <div class="project-card">
-        <h3>In Progress</h3>
-        <p>No completed projects yet — currently sharpening my skills and preparing to build work worth showing. Watch this space.</p>
+  <!-- ══ ABOUT ══ -->
+  <section id="about" aria-labelledby="about-heading">
+    <div class="eyebrow ey-olive" id="about-heading">About Me</div>
+    <div class="ribbon-card">
+      <div class="ribbon-title">Jeonghyun Kim — CSE Student, Seoul National University</div>
+      <div class="ribbon-body rb-sage ribbon-with-photo">
+        <div class="rtext">
+          A Computer Science &amp; Engineering student at Seoul National University
+          with a strong work ethic and a rockstar spirit inside. I push myself hard,
+          stay curious, and bring energy to everything I take on. My ambition is
+          simple: to keep growing until I become an icon in my field.
+        </div>
+        <div class="photo-notch">
+          <img src="assets/profile.jpg" alt="Jeonghyun Kim">
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section aria-labelledby="cv-heading">
-      <h2 id="cv-heading">CV</h2>
-      <a href="assets/cv.pdf" class="cv-btn" download>Download CV (PDF)</a>
-    </section>
+  <!-- ══ RESUME ══ -->
+  <section id="resume" aria-labelledby="resume-heading">
+    <div class="eyebrow ey-salmon" id="resume-heading">Resume</div>
 
-  </main>
+    <!-- Education -->
+    <div class="ribbon-card">
+      <div class="ribbon-title">Education</div>
+      <div class="ribbon-body rb-peach">
+        <strong>Seoul National University</strong><br>
+        B.S. in Computer Science &amp; Engineering<br>
+        <br>
+        <strong>Posung High School</strong><br>
+        Seoul, Republic of Korea
+      </div>
+    </div>
 
-  <footer>
-    <p>&copy; 2026 Jeonghyun Kim</p>
+    <!-- Skills -->
+    <div class="ribbon-card">
+      <div class="ribbon-title">Skills</div>
+      <div class="skills-grid">
+        <div class="skill-cell rb-lime">Vibe Coding</div>
+        <div class="skill-cell rb-sky">Python</div>
+        <div class="skill-cell rb-peach">Java</div>
+        <div class="skill-cell rb-sage">C++</div>
+      </div>
+    </div>
+
+    <!-- Experience -->
+    <div class="ribbon-card">
+      <div class="ribbon-title">Experience</div>
+      <div class="ribbon-body rb-steel">
+        <strong>Standard Education</strong><br>
+        Building a solid academic and technical foundation through coursework and practice.
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ ACTIVITIES & PROJECTS ══ -->
+  <section id="projects" aria-labelledby="projects-heading">
+    <div class="eyebrow ey-periwinkle" id="projects-heading">Activities &amp; Projects</div>
+
+    <!-- Soccer Team -->
+    <div class="ribbon-card">
+      <div class="ribbon-title">Captain — CSE Soccer Team</div>
+      <div class="ribbon-body rb-sky">
+        Leading and organizing the Computer Science &amp; Engineering department
+        soccer team.
+      </div>
+    </div>
+
+    <!-- AI Benchmark -->
+    <div class="ribbon-card">
+      <div class="ribbon-title">
+        Sound-Analyzing AI Benchmark
+        <span class="new-burst" aria-label="In progress">IN PROG</span>
+      </div>
+      <div class="ribbon-body rb-periwinkle">
+        Developing a benchmark for evaluating AI models on sound analysis tasks.
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ COURSES PLANNED ══ -->
+  <section id="courses" aria-labelledby="courses-heading">
+    <div class="eyebrow ey-steel" id="courses-heading">Courses Planned</div>
+    <div class="ribbon-card">
+      <div class="ribbon-title">Upcoming Coursework</div>
+      <div class="courses-grid">
+        <div class="course-cell rb-lime">Mechanical Engineering</div>
+        <div class="course-cell rb-sky">Algorithms</div>
+        <div class="course-cell rb-peach">Computer Structure</div>
+        <div class="course-cell rb-sage">And More&hellip;</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CONTACT / CTA (red — one per page) ══ -->
+  <div class="cta-block" id="contact" role="complementary" aria-label="Contact">
+    <p>
+      Get in touch — I'm always open to new opportunities, collaborations,
+      and conversations.
+    </p>
+    <div class="cta-contacts">
+      <div>
+        <span class="cta-label">Email</span>
+        <span class="cta-val">
+          <a href="mailto:rlawjdgus0625@snu.ac.kr">rlawjdgus0625@snu.ac.kr</a>
+        </span>
+      </div>
+      <div>
+        <span class="cta-label">Phone</span>
+        <span class="cta-val">
+          <a href="tel:+821028948264">010-2894-8264</a>
+        </span>
+      </div>
+    </div>
+    <a href="assets/cv.pdf" class="btn-primary" download>DOWNLOAD FULL CV (PDF)</a>
+  </div>
+
+  <!-- ══ FOOTER ══ -->
+  <footer class="footer-band">
+    <nav aria-label="Page sections">
+      <ul class="footer-nav">
+        <li>
+          <span class="nav-icon" aria-hidden="true">&#128100;</span>
+          <a href="#about">ABOUT</a>
+        </li>
+        <li>
+          <span class="nav-icon" aria-hidden="true">&#128196;</span>
+          <a href="#resume">RESUME</a>
+        </li>
+        <li>
+          <span class="nav-icon" aria-hidden="true">&#128187;</span>
+          <a href="#projects">PROJECTS</a>
+        </li>
+        <li>
+          <span class="nav-icon" aria-hidden="true">&#128218;</span>
+          <a href="#courses">COURSES</a>
+        </li>
+        <li>
+          <span class="nav-icon" aria-hidden="true">&#9993;</span>
+          <a href="#contact">CONTACT</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="footer-links">
+      <a href="assets/cv.pdf" download>Download CV</a>
+      &nbsp;&middot;&nbsp;
+      <a href="mailto:rlawjdgus0625@snu.ac.kr">rlawjdgus0625@snu.ac.kr</a>
+    </div>
+    <p class="footer-copy">
+      This site is best viewed with browser versions 3.0 and higher.<br>
+      &copy; 2026 Jeonghyun Kim. All rights reserved.
+    </p>
   </footer>
 
+</div>
 </body>
 </html>
