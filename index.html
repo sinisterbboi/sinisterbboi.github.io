@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jeonghyun Kim</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #1e3a5f;
+      --red:  #e63946;
+      --light: #f4f6f9;
+      --text: #222;
+      --muted: #666;
+      --border: #dde2ea;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    /* ── Header ── */
+    header {
+      background: var(--navy);
+      color: #fff;
+      padding: 3rem 1.5rem 2.5rem;
+      text-align: center;
+    }
+
+    .profile-img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #fff;
+      display: block;
+      margin: 0 auto 1.2rem;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    header .subtitle {
+      margin-top: 0.35rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--red);
+      font-weight: 700;
+    }
+
+    /* ── Main ── */
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 3rem;
+    }
+
+    section {
+      margin-bottom: 2.5rem;
+    }
+
+    section h2 {
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--red);
+      font-weight: 700;
+      padding-bottom: 0.45rem;
+      border-bottom: 2px solid var(--border);
+      margin-bottom: 1rem;
+    }
+
+    /* About */
+    .about-text {
+      font-size: 1.05rem;
+      color: var(--text);
+    }
+
+    /* Contact */
+    .contact-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 2rem;
+    }
+
+    .contact-list li {
+      display: flex;
+      align-items: baseline;
+      gap: 0.4rem;
+    }
+
+    .contact-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .contact-list a {
+      color: var(--navy);
+      text-decoration: none;
+    }
+
+    .contact-list a:hover,
+    .contact-list a:focus {
+      text-decoration: underline;
+    }
+
+    /* Education */
+    .edu-school {
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .edu-degree {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-top: 0.15rem;
+    }
+
+    /* Strengths */
+    .tags {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tag {
+      background: var(--navy);
+      color: #fff;
+      border-radius: 999px;
+      padding: 0.28rem 0.85rem;
+      font-size: 0.85rem;
+    }
+
+    /* Projects */
+    .project-card {
+      border-left: 3px solid var(--red);
+      padding: 0.8rem 1rem;
+      background: #fff;
+      border-radius: 0 4px 4px 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,.06);
+    }
+
+    .project-card h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.3rem;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* CV download */
+    .cv-btn {
+      display: inline-block;
+      background: var(--red);
+      color: #fff;
+      padding: 0.6rem 1.4rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: background 0.15s;
+    }
+
+    .cv-btn:hover,
+    .cv-btn:focus {
+      background: #c1121f;
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 1.25rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 480px) {
+      header h1       { font-size: 1.7rem; }
+      .profile-img    { width: 110px; height: 110px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="assets/profile.jpg" alt="Jeonghyun Kim" class="profile-img">
+    <h1>Jeonghyun Kim</h1>
+    <p class="subtitle">Computer Science &amp; Engineering Student</p>
+  </header>
+
+  <main>
+
+    <section aria-labelledby="about-heading">
+      <h2 id="about-heading">About Me</h2>
+      <p class="about-text">
+        A Computer Science &amp; Engineering student at Seoul National University
+        with a strong work ethic and a rockstar spirit inside. I push myself hard,
+        stay curious, and bring energy to everything I take on. My ambition is
+        simple: to keep growing until I become an icon in my field.
+      </p>
+    </section>
+
+    <section aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Contact</h2>
+      <ul class="contact-list">
+        <li>
+          <span class="contact-label">Email</span>
+          <a href="mailto:rlawjdgus0625@snu.ac.kr">rlawjdgus0625@snu.ac.kr</a>
+        </li>
+        <li>
+          <span class="contact-label">Phone</span>
+          <a href="tel:+821028948264">010-2894-8264</a>
+        </li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="education-heading">
+      <h2 id="education-heading">Education</h2>
+      <p class="edu-school">Seoul National University</p>
+      <p class="edu-degree">B.S. in Computer Science &amp; Engineering</p>
+    </section>
+
+    <section aria-labelledby="strengths-heading">
+      <h2 id="strengths-heading">Strengths</h2>
+      <ul class="tags">
+        <li class="tag">Diligence</li>
+        <li class="tag">Drive</li>
+        <li class="tag">Self-growth</li>
+        <li class="tag">Ambition</li>
+        <li class="tag">Stage presence</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="projects-heading">
+      <h2 id="projects-heading">Projects</h2>
+      <div class="project-card">
+        <h3>In Progress</h3>
+        <p>No completed projects yet — currently sharpening my skills and preparing to build work worth showing. Watch this space.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="cv-heading">
+      <h2 id="cv-heading">CV</h2>
+      <a href="assets/cv.pdf" class="cv-btn" download>Download CV (PDF)</a>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Jeonghyun Kim</p>
+  </footer>
+
+</body>
+</html>
